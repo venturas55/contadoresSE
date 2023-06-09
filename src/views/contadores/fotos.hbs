@@ -1,0 +1,38 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+            <form action="/aton/upload/{{nif}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="nif" value="{{nif}}">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" name="imagen" class="custom-file-input" id="inputGroupFile02">
+                        <label class="custom-file-label" for="inputGroupFile02">Subir nueva imagen</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="submit" class=" btn btn-primary btn-block">Subir</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-3 mx-auto">
+            <a href="/aton/plantilla/{{nif}}" class="btn btn-primary btn-block"> Volver atras</a>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="card-columns">
+            {{#each fotos}}
+            <div class="card m-4" style="max-width: 18rem;">
+                <a href="/img/imagenes/{{../nif}}/{{this}}" target="_blank">
+                    <img src="/img/imagenes/{{../nif}}/{{this}}" alt="Una imagen" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <a href="/img/imagenes/{{../nif}}/{{this}}" target="_blank" class="btn btn-primary btn-block"> Ver
+                        Foto</a>
+                    <a href="/aton/fotos/{{../nif}}/{{this}}/delete" class="btn btn-danger btn-block"> Delete</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

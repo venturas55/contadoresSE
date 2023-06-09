@@ -1,0 +1,147 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-4">
+    <div class="d-flex flex-column p-0 m-0">
+        <a href="http://www.valenciaport.com" target="_blank"> <img src="/img/logo-APV.svg" alt="APV logo"></a>
+        <div>
+            {{#if user}}
+            {{>avatar}}
+            {{/if}}
+            <a class="navbar-brand" href="/aton/list">BBDD SAN</a>
+        </div>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+    </div>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                APV
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/aton/list">Listado global</a>
+                <a class="dropdown-item" href="/aton/list/Valen">Listado Valencia</a>
+                <a class="dropdown-item" href="/aton/list/Sag">Listado Sagunto</a>
+                <a class="dropdown-item" href="/aton/list/Gand">Listado Gandia</a>
+                <a class="dropdown-item" href="/aton/list/Ext">Listado Externas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/mapaGeneral/valencia">Mapa Valencia</a>
+                <a class="dropdown-item" href="/mapaGeneral/sagunto">Mapa Sagunto</a>
+                <a class="dropdown-item" href="/mapaGeneral/gandia">Mapa Gandia</a>
+                {{!-- <div class="dropdown-divider"></div> --}}
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Externo
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/aton/list/Canet">CN Canet</a>
+                <a class="dropdown-item" href="/aton/list/Sapla">CN Port Saplaya</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/aton/list/Marina">Marina JCI</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/aton/list/Perello">CN Perello</a>
+                <a class="dropdown-item" href="/aton/list/Cullera">Puerto Cullera</a>
+                <a class="dropdown-item" href="/aton/list/Oliva">CN Oliva</a>
+            </div>
+        </li>
+
+        {{#if user}}
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Panel Adm
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/aton/add ">Crear nuevo AtoN</a>
+                <a class="dropdown-item" href="/tickets/list">Ver Tickets</a>
+                <a class="dropdown-item" href="/tickets/add"> Crear ticket</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/documentos">Documentos e Informes</a>
+                <a class="dropdown-item" href="/backups">Backups BBDD</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logs">Ver logs</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/profile">Perfil</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+        </li>
+
+        {{/if}}
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Otros links
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/plan">Plan Inspeccion</a>
+                <a class="dropdown-item" href="/calculos">Calculos</a>
+                <a class="dropdown-item" href="/inventario">Inventario</a>
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" href="/tickets/list">Tickets</a>
+            </div>
+        </li>
+
+
+
+        {{#if user}}
+        <li class="nav-item">
+            <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+            <a class="nav-link" href="/signin" tabindex="-1" aria-disabled="true">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/signup" tabindex="-1" aria-disabled="true">Sign up</a>
+        </li>
+        {{/if}}
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="history.back();" tabindex="-1"
+                aria-disabled="true">Volver</a>
+        </li>
+
+        {{#if user}}
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                API
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/api/balizas">API balizas</a>
+                <a class="dropdown-item" href="/api/usuarios">API usuarios</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/api/baliza/25720">API baliza</a>
+                <a class="dropdown-item" href="/api/mantenimiento/25720">API mantenimiento</a>
+                <a class="dropdown-item" href="/api/observaciones/25720">API observaciones</a>
+                <div class="form-group">
+                    <label for="nif">NIF</label>
+                    <input type="email" class="form-control" id="nif" placeholder="25720">
+                </div>
+            </div>
+        </li>
+
+        {{/if}}
+    </ul>
+</nav>

@@ -1,0 +1,33 @@
+<!-- CUERPO -->
+<div class="container-fluid">
+    <!-- id="cuerpo" -->
+    <div class="d-flex flex-row justify-content-center align-items-center">
+        <h1 class="text-center">LISTADO LOGS</h1>
+        <img src="/img/icon-menu-avisos.svg" alt="avisos"
+            class="m-2 rounder-circle">
+    </div>
+    <div class="col-11 mx-auto">
+        <div class="row  my-4">
+            <table class="table table-bordered table-dark table-hover my-4">
+                <tr>
+                    <th>fecha</th>
+                    <th>Usuario</th>
+                    <th>Accion</th>
+                    <th>Detalles</th>
+                </tr>
+                {{#if logs}}
+                {{#each logs}}
+                <tr>
+                    <td> {{timeago this.fecha}} </td>
+                    <td> {{this.usuario}} </td>
+                    <td> {{this.accion}} </td>
+                    <td> {{this.observacion}} </td>
+                </tr>
+                {{/each}}
+                {{else}}
+                <tr>No hay ningún log generado!! </tr>
+                {{/if}}
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<h1 class="text-center">Cambios en las observaciones del AtoN con NIF: {{observacion.nif}}</h1>
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/aton/observaciones/edit/{{observacion.id_observacion}}" method="POST">
+                        <div class="form-group">
+                            <div class="form-group"><label for="caracteristica">OBSERVACION A MODIFICAR</label>
+                                <input value="{{observacion.id_observacion}}" class="form-control" type="hidden"
+                                    name="id_observacion" />
+                                <input value="{{observacion.nif}}" class="form-control" type="hidden" name="nif" />
+                                <input value="{{observacion.observaciones}}" class="form-control" type="text"
+                                    name="observacionNueva" placeholder="caracteristica a modificar" />
+                            </div>
+                            <button class="btn btn-success btn-block">Guardar</button>
+                    </form>
+                    <form action="/aton/plantilla/{{observacion.nif}}" method="GET">
+                        <button class="btn btn-danger btn-block">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

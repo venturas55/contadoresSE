@@ -1,0 +1,50 @@
+<div id="myModal1" class="modal">
+
+  <div class="modal-content">
+    <span class="close" onclick="cierraModal();">&times;</span>
+    <div class="centrado">
+      <h4>Está a punto de borrar el AtoN con NIF: {{baliza.nif}}</h4>
+      <br />
+      <p>Esta Ud. seguro??? </p>
+      <p>
+        Esto conlleva su eliminación completa de la BBDD, y ya no habrá marcha
+        atras.</p>
+      <div class="card-body">
+        <a href="/balizas/delete/{{baliza.nif}}" class="btn btn-danger">Borrar</a>
+        <a onclick="cierraModal();" class="btn btn-warning">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cierraModal();">&times;</span>
+    <div class="centrado">
+      <h4>Introduzca el NIF que desea forzar borrado</h4>
+      <input type="text" id="NIFforzarBorrado" />
+      <div class="card-body">
+        <a onclick="borrarNIF();" class="btn btn-danger">
+          Borrar</a>
+        <a onclick="cierraModal();" class="btn btn-warning">
+          Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cierraModal();">&times;</span>
+    <div class="centrado">
+      <h4>Introduzca la contraseña anterior</h4>
+      <input type="password" placeholder="contraseña" id="contrasenaConfirmacion" />
+      <div class="card-body">
+        <a onclick="cambiarUsuario();" class="btn btn-primary">
+          Guardar</a>
+        <a onclick="cierraModal();" class="btn btn-danger">
+          Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>

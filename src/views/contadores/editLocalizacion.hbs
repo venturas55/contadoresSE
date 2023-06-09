@@ -1,0 +1,29 @@
+<h1 class="text-center">Cambios en la localizacion del AtoN con NIF: {{baliza.nif}}</h1>
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/aton/editLocalizacion/{{baliza.nif}}" method="POST">
+                        <div class="form-group"><label for="puerto">PUERTO</label><input value="{{baliza.puerto}}"
+                                class="form-control" type="text" name="puerto" placeholder="puerto" autofocus /> </div>
+                        <div class="form-group"><label for="num_local">NUM_LOCAL</label><input
+                                value="{{baliza.num_local}}" class="form-control" type="text" name="num_local"
+                                placeholder="num_local" /> </div>
+                        <div class="form-group"><label for="localizacion">LOCALIZACION</label><input
+                                value="{{baliza.localizacion}}" class="form-control" type="text" name="localizacion"
+                                placeholder="localizacion" /> </div>
+                        <div class="form-group"><label for="latitud">LATITUD</label><input value="{{baliza.latitud}}"
+                                class="form-control" type="text" name="latitud" placeholder="latitud" /> </div>
+                        <div class="form-group"><label for="longitud">LONGITUD</label><input value="{{baliza.longitud}}"
+                                class="form-control" type="text" name="longitud" placeholder="longitud" /> </div>
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </form>
+                    <form action="/aton/plantilla/{{baliza.nif}}" method="GET">
+                        <button class="btn btn-danger btn-block">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

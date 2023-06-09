@@ -1,0 +1,37 @@
+<h1 class="text-center">Cambios en la lampara del AtoN con NIF: {{baliza.nif}}</h1>
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/aton/editLampara/{{baliza.nif}}" method="POST">
+                        <div class="form-group"><label for="altura">ALTURA</label><input value="{{baliza.altura}}"
+                                class="form-control" type="number" name="altura" placeholder="altura" autofocus
+                                step="0.01" /> </div>
+                        <div class="form-group"><label for="elevacion">ELEVACION</label><input
+                                value="{{baliza.elevacion}}" class="form-control" type="number" name="elevacion"
+                                placeholder="elevacion" step="0.01" /> </div>
+                        <div class="form-group"><label for="linterna">LINTERNA</label><input value="{{baliza.linterna}}"
+                                class="form-control" type="text" name="linterna" placeholder="linterna" /> </div>
+                        <div class="form-group"><label for="alcanceNom">ALCANCE NOMINAL</label><input
+                                value="{{baliza.alcanceNom}}" class="form-control" type="number" name="alcanceNom"
+                                placeholder="alcanceNom" step="0.01" /> </div>
+                        <div class="form-group"><label for="alcanceLum">ALCANCE LUMINOSO</label><input
+                                value="{{baliza.alcanceLum}}" class="form-control" type="number" name="alcanceLum"
+                                placeholder="alcanceLum" step="0.01" /> </div>
+                        <div class="form-group"><label for="candelasCalc">INTESIDAD ESTACIONARIA</label><input
+                                value="{{baliza.candelasCalc}}" class="form-control" type="number" name="candelasCalc"
+                                placeholder="candelasCalc" step="0.01" /> </div>
+                        <div class="form-group"><label for="candelasInst">CANDELAS INSTALADAS</label><input
+                                value="{{baliza.candelasInst}}" class="form-control" type="number" name="candelasInst"
+                                placeholder="candelasInst" step="0.01" /> </div>
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </form>
+                    <form action="/aton/plantilla/{{baliza.nif}}" method="GET">
+                        <button class="btn btn-danger btn-block">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

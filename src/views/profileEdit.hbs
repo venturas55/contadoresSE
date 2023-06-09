@@ -1,0 +1,60 @@
+<div class="container p-4">
+  <div class="row4">
+    <div class="col-md-5 mx-auto">
+      <div class="card text-center">
+        <div class="card-body">
+
+          <h3>Bienvenid@ {{user.usuario}} </h3>
+          {{>avatar}}
+          <a href="/profile/borrarfoto/{{user.id}}/{{user.pictureURL}}" class="btn btn-primary btn-sm">Eliminar foto
+            perfil</a>
+     {{#if user.privilegio}}
+            <p> Privilegio: {{user.privilegio}}</p>
+            {{/if}}
+
+          <form action="/profile/edit/" method="POST">
+            <div class="form-group">
+              <input type="hidden" name="id" value="{{user.id}}" />
+              <label for="full_name">Nombre completo
+                <input type="text" value="{{user.full_name}}" name="full_name" class="form-control" autofocus required />
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="usuario">Usuario
+                <input type="text" value="{{user.usuario}}" name="usuario" class="form-control" />
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="email">eMail
+                <input type="text" value="{{user.email}}" name="email" class="form-control" /></label>
+            </div>
+       
+
+            <div class="form-group">
+              <label for="newcontrasena">Nueva Contraseña
+                <input type="password" placeholder="Nueva contraseña" name="newcontrasena" required
+                  class="form-control" /></label>
+              <div class="form-group">
+                <label for="newcontrasena2">Confirme Contraseña
+                  <input type="password" placeholder="Repita contraseña" name="newcontrasena2" required
+                    class="form-control" /></label>
+                <div class="form-group">
+                  <label for="oldcontrasena">Vieja Contraseña
+                    <input type="password" name="oldcontrasena" class="form-control" required/></label>
+                </div>
+
+                <button class="btn btn-primary m-4 btn-sm">
+                  Guardar cambios
+                </button>
+          </form>
+          <a href="/profile" class="btn btn-danger btn-sm m-4"> Cancelar cambios </a>
+
+
+          <a onclick="document.getElementById('modalAdmin').style.display = 'block';"
+            class="btn btn-warning btn-sm m-4"> Hacer Admin </a>
+          {{>ModalHacerAdmin}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

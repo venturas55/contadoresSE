@@ -1,0 +1,17 @@
+<div id="myModalBorrado" class="modal">
+  <div class="modal-content">
+    <span class="close text-right" onclick="cierraModal();">&times;</span>
+    <div class="text-center">
+      <h4>Está a punto de borrar el AtoN con NIF: {{baliza.nif}}</h4>
+      <br />
+      <p>Esta Ud. seguro??? </p>
+      <p>
+        Esto conlleva su eliminación completa de la BBDD, y ya no habrá marcha
+        atras.</p>
+      <div class="card-body">
+        <a href="/aton/delete/{{baliza.nif}}" class="btn btn-danger">Borrar</a>
+        <a onclick="cierraModal();" class="btn btn-warning">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>

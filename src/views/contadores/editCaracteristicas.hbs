@@ -1,0 +1,36 @@
+<h1 class="text-center">Cambios en las caracteristicas del AtoN con NIF: {{baliza.nif}}</h1>
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/aton/editCaracteristicas/{{baliza.nif}}" method="POST">
+                        <div class="form-group">
+                            <label for="num_internacional">NUM_INTERNACIONAL</label>
+                            <input value="{{baliza.num_internacional}}" class="form-control" type="text"
+                                name="num_internacional" placeholder="num_internacional" autofocus />
+                        </div>
+                        <div class="form-group"> <label for="tipo">TIPO</label><input value="{{baliza.tipo}}"
+                                class="form-control" type="text" name="tipo" placeholder="tipo" /> </div>
+                        <div class="form-group"> <label for="telecontrol">TELECONTROL</label><input
+                                value="{{baliza.telecontrol}}" class="form-control" type="text" name="telecontrol"
+                                placeholder="telecontrol" /> </div>
+                        <div class="form-group"><label for="apariencia">APARIENCIA</label><input
+                                value="{{baliza.apariencia}}" class="form-control" type="text" name="apariencia"
+                                placeholder="apariencia" /> </div>
+                        <div class="form-group"><label for="periodo">PERIODO</label><input value="{{baliza.periodo}}"
+                                class="form-control" type="number" name="periodo" placeholder="periodo" /> </div>
+                        <div class="form-group"><label for="caracteristica">CARACTERISTICA</label><input
+                                value="{{baliza.caracteristica}}" class="form-control" type="text" name="caracteristica"
+                                placeholder="caracteristica" /> </div>
+
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </form>
+                    <form action="/aton/plantilla/{{baliza.nif}}" method="GET">
+                        <button class="btn btn-danger btn-block">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

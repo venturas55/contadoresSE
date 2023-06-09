@@ -1,0 +1,36 @@
+<div class="container p-4">
+    <div class="row4">
+        <div class="col-md-5 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Hola {{user.full_name}}</h3>
+                    {{>avatar}}
+                    <form action="/upload/{{user.id}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="user" value="{{user.usuario}}" />
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" name="imagen" class="custom-file-input" id="inputGroupFile02" />
+                                <label class="custom-file-label" for="inputGroupFile02">Choose
+                                    file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text">Upload</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <p>Nombre: {{user.full_name}} </p>
+                    <p>Usuario: {{user.usuario}} </p>
+                    <p>Correo: {{user.email}} </p>
+                    <p>Privilegio: {{user.privilegio}} </p>
+                    <p>Imagen perfil: {{user.pictureURL}} </p>
+                    <div>
+                        <a href="/profile/edit" class="btn btn-warning m-1">Editar el Perfil</a>
+                    </div>
+                    <div><a href="/profile/delete/{{user.id}}" class="btn btn-danger m-1">Eliminar Perfil</a></div>
+                    <div><a href="/balizas/list" class="btn btn-primary  m-4">Mira el balizamiento</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
