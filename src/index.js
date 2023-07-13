@@ -69,6 +69,7 @@ app.use((req, res, next) => {
 app.use(require('./routes')); //busca automaticamente index.js
 app.use(require('./routes/authentication'));
 app.use('/contadores', require('./routes/contadores'));
+app.use('/lectura', require('./routes/lecturas'));
 app.use(require('./routes/api'));
 
 

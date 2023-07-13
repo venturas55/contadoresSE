@@ -7,20 +7,20 @@
     <table id="listado" class="listado mx-auto w-100 table-hover" data-search="true">
       <tr>
       {{!--   <th></th> --}}
-        <th>NIF</th>
-        <th class="d-none d-sm-table-cell">Puerto</th>
-        <th>Tipo</th>
-        <th class="d-none d-sm-table-cell">Apariencia</th>
-        <th class="d-none d-xl-table-cell">Linterna</th>
+        <th>Num_Serie</th>
+        <th>CT</th>
+        <th class="d-none d-sm-table-cell">Ubicación</th>
+        <th class="d-none d-sm-table-cell">Abonado</th>
+        <th class="d-none d-xl-table-cell">Observaciones</th>
       </tr>
       {{#each contadores}}
-      <tr class="fila" onclick="location.href='/aton/plantilla/{{nif}}';">
+      <tr class="fila" onclick="location.href='/contadores/plantilla/{{num_serie}}';">
        {{!--  <td> {{#if hasTicket}}<i class="fa fa-exclamation-triangle blink_me" aria-hidden="true"></i> {{/if}}{{#if necesita_pintado}}<i class="fa fa-thin fa-paint-roller" aria-hidden="true"></i> {{/if}}</td> --}}
-        <td>{{nif}}</td>
-        <td class="d-none d-sm-table-cell">{{puerto}}</td>
-        <td>{{tipo}} </td>
-        <td class="d-none d-sm-table-cell">{{apariencia}}</td>
-        <td class="d-none d-xl-table-cell">{{linterna}} </td>
+        <td>{{num_serie}}</td>
+        <td>{{ct}} </td>
+        <td class="d-none d-sm-table-cell">{{ubicacion}}</td>
+        <td class="d-none d-sm-table-cell">{{nombre}}</td>
+        <td class="d-none d-xl-table-cell">{{observaciones}} </td>
       </tr>
       {{/each}}
     </table>

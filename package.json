@@ -24,6 +24,7 @@
     "@googlemaps/markerclusterer": "^2.0.15",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -45,6 +46,6 @@
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.22"
   }
 }

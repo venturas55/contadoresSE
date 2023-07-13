@@ -1,32 +1,37 @@
-<h1 class="text-center">Cambios en las caracteristicas del AtoN con NIF: {{baliza.nif}}</h1>
+<h1 class="text-center">Cambios en la informacion del contador: {{contador.nif}}</h1>
 <div class="container p-4 mb-4">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-xl-8 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/aton/editCaracteristicas/{{baliza.nif}}" method="POST">
+                    <form action="/contadores/editCaracteristicas/{{contador.num_serie}}" method="POST">
                         <div class="form-group">
-                            <label for="num_internacional">NUM_INTERNACIONAL</label>
-                            <input value="{{baliza.num_internacional}}" class="form-control" type="text"
-                                name="num_internacional" placeholder="num_internacional" autofocus />
+                            <label for="num_serie">ref</label>
+                            <input value="{{contador.num_serie}}" class="form-control" type="text" name="ref"
+                                placeholder="ref" autofocus />
                         </div>
-                        <div class="form-group"> <label for="tipo">TIPO</label><input value="{{baliza.tipo}}"
-                                class="form-control" type="text" name="tipo" placeholder="tipo" /> </div>
-                        <div class="form-group"> <label for="telecontrol">TELECONTROL</label><input
-                                value="{{baliza.telecontrol}}" class="form-control" type="text" name="telecontrol"
-                                placeholder="telecontrol" /> </div>
-                        <div class="form-group"><label for="apariencia">APARIENCIA</label><input
-                                value="{{baliza.apariencia}}" class="form-control" type="text" name="apariencia"
-                                placeholder="apariencia" /> </div>
-                        <div class="form-group"><label for="periodo">PERIODO</label><input value="{{baliza.periodo}}"
-                                class="form-control" type="number" name="periodo" placeholder="periodo" /> </div>
-                        <div class="form-group"><label for="caracteristica">CARACTERISTICA</label><input
-                                value="{{baliza.caracteristica}}" class="form-control" type="text" name="caracteristica"
-                                placeholder="caracteristica" /> </div>
+                        <div class="form-group">
+                            <label for="num_serie">num_serie</label> <input value="{{contador.num_serie}}"
+                                class="form-control" type="text" name="num_serie" placeholder="num_serie" />
+                        </div>
+                        <div class="form-group"><label for="ct">CT</label><input value="{{contador.ct}}"
+                                class="form-control" type="text" name="ct" placeholder="ct" /> </div>
+                        <div class="form-group"> <label for="zona">zona</label><input value="{{contador.zona}}"
+                                class="form-control" type="text" name="zona" placeholder="zona" /> </div>
+                        <div class="form-group"> <label for="nombre">Nombre</label><input value="{{contador.nombre}}"
+                                class="form-control" type="text" name="nombre" placeholder="Nombre" /> </div>
+                  
+                        <div class="form-group"><label for="ubicacion">Ubicacion</label><input
+                                value="{{contador.ubicacion}}" class="form-control" type="text" name="ubicacion"
+                                placeholder="ubicacion" /> </div>
+                                      <div class="form-group"> <label for="id_abonado">Id abonado</label><input
+                                value="{{contador.id_abonado}}" class="form-control" type="number" name="id_abonado"
+                                placeholder="id_abonado" /> </div>
+
 
                         <button class="btn btn-success btn-block">Guardar</button>
                     </form>
-                    <form action="/aton/plantilla/{{baliza.nif}}" method="GET">
+                    <form action="/contadores/plantilla/{{contador.num_serie}}" method="GET">
                         <button class="btn btn-danger btn-block">Cancelar</button>
                     </form>
                 </div>

@@ -3,7 +3,7 @@
     <div class="row my-2 mx-4">
         <div class="text-center">
             <a class="btn btn-secondary" href="/tickets/add/{{baliza.nif}}">CREAR TICKET</a>
-            <a class="btn btn-secondary" href="/aton/pintura/{{baliza.nif}}">PINTADO</a>
+            <a class="btn btn-secondary" href="/contador/pintura/{{baliza.nif}}">PINTADO</a>
             {{#if baliza.necesita_pintado}}
             <button onclick="document.getElementById('myModalPintado').style.display = 'block';"
                 class="btn btn-danger  float-right"> <i class="fa-solid fa-paint-roller"></i> </button>
@@ -15,7 +15,7 @@
         <div class="col-md-6 mx-auto">
             <table class="table table-responsive-sm rounded table-danger table-sm table-striped mx-auto">
                 <tr>
-                    <th class="text-center">El AtoN {{baliza.nif}} tiene los siguientes tickets activos</th>
+                    <th class="text-center">El Contador {{baliza.num_serie}} tiene los siguientes tickets activos</th>
                 </tr>
                 {{#each tickets}}
                 <tr class="text-center">
@@ -34,7 +34,7 @@
 
     <div class="row mx-1">
         {{!-- Fotos --}}
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        {{!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="luzCard">
                 <div id="luz"></div>
             </div>
@@ -44,7 +44,7 @@
                 <img src="/img/imagenes/{{../baliza.nif}}/{{this}}" alt="/img/imagenes/{{../baliza.nif}}/{{this}}">
                 {{/each}}
             </div>
-            <form action="/aton/upload/{{baliza.nif}}" method="POST" enctype="multipart/form-data">
+            <form action="/contador/upload/{{baliza.nif}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="nif" value="{{baliza.nif}}">
                 <div class="input-group mb-3">
                     <div class="custom-file">
@@ -56,115 +56,44 @@
                     </div>
                 </div>
             </form>
-            <a href="/aton/fotos/{{baliza.nif}}" class="btn btn-primary btn-block"> GALERIA DE FOTOS</a>
-        </div>
-        {{!-- Caracteristicas --}}
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+            <a href="/contador/fotos/{{contador.num_serie}}" class="btn btn-primary btn-block"> GALERIA DE FOTOS</a>
+        </div> --}}
+        {{!-- CONTADOR --}}
+        <div class="col-lg-10">
             <h1 class="text-center"> Caracteristicas </h1>
             <table class="table table-dark rounded table-hover">
                 <tr>
-                    <th>NIF</th>
-                    <td>{{baliza.nif}}</td>
+                    <th>ref</th>
+                    <td>{{contador.ref}} </td>
                 </tr>
                 <tr>
-                    <th># Int</th>
-                    <td>{{baliza.num_internacional}}</td>
+                    <th>num_serie</th>
+                    <td>{{contador.num_serie}}</td>
                 </tr>
                 <tr>
-                    <th>Tipo</th>
-                    <td>{{baliza.tipo}}</td>
+                    <th>zona</th>
+                    <td>{{contador.zona}}</td>
                 </tr>
                 <tr>
-                    <th>Apariencia</th>
-                    <td id="aparienciaID"> {{baliza.apariencia}}</td>
+                    <th>CT</th>
+                    <td>{{contador.ct}} </td>
                 </tr>
                 <tr>
-                    <th>Periodo</th>
-                    <td>{{baliza.periodo}} s</td>
+                    <th>nombre</th>
+                    <td>{{contador.nombre}}</td>
+                </tr>
+
+                <tr>
+                    <th>ubicacion</th>
+                    <td id="aparienciaID"> {{contador.ubicacion}}</td>
                 </tr>
                 <tr>
-                    <th>Caracteristica</th>
-                    <td id="caracteristicaID">{{baliza.caracteristica}}</td>
-                </tr>
-                <tr>
-                    <th>Telecontrol</th>
-                    <td id="caracteristicaID">{{baliza.telecontrol}}</td>
+                    <th>Id abonado</th>
+                    <td>{{contador.id_abonado}}</td>
                 </tr>
             </table>
-            <a class="btn btn-primary btn-xs btn-block" href="/aton/editCaracteristicas/{{baliza.nif}}"
+            <a class="btn btn-primary btn-xs btn-block" href="/contadores/editCaracteristicas/{{contador.num_serie}}"
                 class="btn btn-primary btn-lg btn-block"> ACTUALIZAR CARACTERISTICAS</a>
-        </div>
-        {{!-- Localizacion --}}
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
-            <h1 class="text-center"> Localizacion </h1>
-            <table class="table table-dark table-hover">
-                {{!-- <tr>
-                    <th>NIF</th>
-                    <td>{{baliza.nif}}</td>
-                </tr> --}}
-                <tr>
-                    <th>Puerto</th>
-                    <td>{{baliza.puerto}}</td>
-                </tr>
-                <tr>
-                    <th># Local</th>
-                    <td>{{baliza.num_local}}</td>
-                </tr>
-                <tr>
-                    <th>Localizacion</th>
-                    <td>{{baliza.localizacion}}</td>
-                </tr>
-                <tr>
-                    <th>Latitud</th>
-                    <td>{{baliza.latitud}}</td>
-                </tr>
-                <tr>
-                    <th>Longitud</th>
-                    <td>{{baliza.longitud}}</td>
-                </tr>
-            </table>
-            <a class="btn btn-primary btn-xs btn-block" href="/aton/editLocalizacion/{{baliza.nif}}">ACTUALIZAR
-                LOCALIZACION </a>
-            <a class="btn btn-primary btn-xs btn-block" href="/mapa/{{baliza.nif}}">VER UBICACION <i
-                    class="fa-solid fa-map"></i>
-            </a>
-        </div>
-        {{!-- Lampara --}}
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
-            <h1 class="text-center"> Lampara </h1>
-            <table class="table table-dark table-hover">
-                <tr>
-                    <th>Altura(m)</th>
-                    <td>{{baliza.altura}}</td>
-                </tr>
-                <tr>
-                    <th>Elevacion (m)</th>
-                    <td>{{baliza.elevacion}}</td>
-                </tr>
-                <tr>
-                    <th>Linterna</th>
-                    <td>{{baliza.linterna}}</td>
-                </tr>
-                <tr>
-                    <th>Alcance Nominal (MN)</th>
-                    <td>{{baliza.alcanceNom}}</td>
-                </tr>
-                <tr>
-                    <th>Alcance Luminoso (MN)</th>
-                    <td>{{baliza.alcanceLum}}</td>
-                </tr>
-                <tr>
-                    <th>Intensidad estacionaria (Cd)</th>
-                    <td>{{baliza.candelasCalc}}</td>
-                </tr>
-                <tr>
-                    <th>Intensidad instalada (Cd)</th>
-                    <td>{{baliza.candelasInst}}</td>
-                </tr>
-            </table>
-            <a class="btn btn-primary btn-xs btn-block" href="/aton/editLampara/{{baliza.nif}}"
-                class="btn btn-primary btn-lg btn-block">ACTUALIZAR LAMPARA
-            </a>
         </div>
     </div>
     {{!-- Observaciones --}}
@@ -175,14 +104,14 @@
                 {{#each obs}}
                 <tr>
                     <td>{{this.observaciones}}</td>
-                    <td> <a href="/aton/observaciones/edit/{{this.id_observacion}}" class="text-primary"><i
+                    <td> <a href="/contador/observaciones/edit/{{this.id_observacion}}" class="text-primary"><i
                                 class="fa-solid fa-pen-to-square"></i>Edit</a>
-                        <a type="submit" href="/aton/observaciones/delete/{{this.id_observacion}}"
+                        <a type="submit" href="/contador/observaciones/delete/{{this.id_observacion}}"
                             class="text-primary"><i class="fa-solid fa-trash"></i>Del</a>
                     </td>
                 </tr>
                 {{/each}}
-                <form action="/aton/observaciones/add" method="POST">
+                <form action="/contador/observaciones/add" method="POST">
                     <input type="hidden" name="nif" value="{{baliza.nif}}">
                     <tr>
                         <td><input type="text" name="observaciones" style="width: 100%;" required /></td>
@@ -192,61 +121,65 @@
             </table>
         </div>
     </div>
-    {{!-- Localizacion --}}
+
     <div class="row mx-1  mt-2">
+        <h2></h2>
+        <div class="col-6">
+                <div><canvas id="graficaLecturas"></canvas></div>
+        </div>
+            <div class="col-6">
+                <div><canvas id="graficaConsumos"></canvas></div>
+        </div>
+    </div>
+
+    <div class="row mx-1  mt-2">
+        {{#if lecturas}}
         <div class="col-sm-12">
-            <h1 class="text-center"> Mantenimiento </h1>
+            <h1 class="text-center"> Lecturas </h1>
             <table class="table table-responsive-sm table-dark table-hover">
+                <tbody id="datos">
                 <tr>
                     <th>Fecha</th>
-                    <th>Descripcion</th>
+                    <th>Lectura</th>
                     <th>Edicion</th>
                 </tr>
-                {{#each mant}}
+                {{#each lecturas}}
                 <tr>
 
-                    {{!-- <td>{{timeago fecha}}</td> asi haciendo uso del timeago--}}
-                    <td> {{formatearSp fecha}}</td>
-                    <td>{{mantenimiento}}</td>
-                    {{!-- <td> <a href="" class="btn btn-primary btn-xs btn-block"><i
-                                class="fa-solid fa-pen-to-square">borrar</i> </a> </td> --}}
+                    <td id="fecha{{@index}}" class="fechas"> {{formatearSp this.fecha}}</td>
+                    <td id="lectura{{@index}}" class="lecturas">{{this.lectura}}</td>
                     <td>
-                        <input type="hidden" name="nif" value='{{baliza.nif}}' />
+                        <input type="hidden" name="num_serie" value='{{contador.num_serie}}' />
                         <input type="hidden" name="fecha" value='{{fecha}}' />
-                        <input type="hidden" name="mantenimiento" value='{{mantenimiento}}' />
-                        <a href="/aton/mantenimiento/edit/{{this.id_mantenimiento}}" class="text-primary"><i
+                        <input type="hidden" name="lectura" value='{{lectura}}' />
+                        <a href="/lectura/edit/{{this.id_lectura}}" class="text-primary"><i
                                 class="fa-solid fa-pen-to-square"></i>Edit</a>
-                        <a href="/aton/mantenimiento/delete/{{this.id_mantenimiento}}" class="text-primary"><i
+                        <a href="/lectura/delete/{{this.id_lectura}}" class="text-primary"><i
                                 class="fa-solid fa-trash"></i>Del</a>
                     </td>
                 </tr>
-                {{!-- <form action="./modBBDDmantenimiento.php" method="post">
-
-                    <tr class='modificarnomostrar'>
-                        <td><input type='date' name='fechaout' value="$i[fecha]" /> </td>
-                        <td><input type='text' name='mantenimientoout' value="{{mantenimiento}}" /></td>
-                        <td>
-                            <input type="submit" value="modificar" class="btn btn-warning btn-lg btn-block disabled" />
-                        </td>
-                    </tr>
-                </form> --}}
                 {{/each}}
-                <form action="/aton/mantenimiento/add" method="POST">
-                    <input type="hidden" name="nif" value='{{baliza.nif}}' />
+                {{/if}}
+
+                <form action="/lectura/add" method="POST">
+                    <input type="hidden" name="num_serie" value='{{contador.num_serie}}' />
                     <tr>
                         <td><input type="date" name="fecha" required /></td>
-                        <td><input type="text" name="mantenimiento" required /></td>
+                        <td><input type="number" name="lectura" step="0.01" required /></td>
                         <td> <input type="submit" value="añadir" class="btn btn-primary btn-xs btn-block" /></td>
                     </tr>
                 </form>
+                </tbody>
             </table>
         </div>
     </div>
 
+
+
     <div class="row mx-1 mb-5">
         <div class="col-sm-12">
             <button onclick="document.getElementById('myModalBorrado').style.display = 'block';"
-                class="btn btn-danger">BORRAR ATON</button>
+                class="btn btn-danger">BORRAR contador</button>
 
         </div>
     </div>

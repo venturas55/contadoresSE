@@ -1,0 +1,26 @@
+<h1 class="text-center">Cambios en lectura del contador <a
+        href="/contadores/plantilla/{{lectura.num_serie}}">{{lectura.num_serie}}</a> </h1>
+<div class="container p-4 mb-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/lectura/edit/{{lectura.id_lectura}}" method="POST">
+                        <div class="form-group">
+                            <div class="form-group"><label for="mantenimiento">LECTURA A MODIFICAR</label></div>
+                            <input value="{{lectura.id_lectura}}" type="hidden" name="id_lectura" />
+                            <input value="{{lectura.num_serie}}" type="hidden" name="num_serie" />
+                            Fecha <input type="date" value="{{formatearEn lectura.fecha}}" class="form-control"
+                                name="fechaNueva" required />
+                            Lectura <input value="{{lectura.lectura}}" class="form-control" type="text" name="lectura"
+                                placeholder="Mantenimiento a modificar" required />
+                        </div>
+                        <button class="btn btn-success btn-block">Guardar</button>
+                    </form>
+                    <a href="/contadores/plantilla/{{lectura.num_serie}}"> <button
+                            class="btn btn-danger btn-block">Cancelar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
